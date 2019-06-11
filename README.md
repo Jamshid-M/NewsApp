@@ -1,5 +1,5 @@
 # NewsApp
-## Android App which displays latest news from **newsapi.org**
+Android App which displays latest news from **newsapi.org**
 
 Android project with the usage of libraries</br>
  **RxJava**</br>
