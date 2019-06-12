@@ -20,5 +20,5 @@ Android project with the usage of libraries</br>
 **Example with selecting news language** </br></br>
 ![alt_text](https://github.com/Jamshid-M/NewsApp/blob/master/img/select_lang.png)</br></br></br>
 
-**Example after appling news language selection** </br></br>
+**Example after applying news language selection** </br></br>
 ![alt_text](https://github.com/Jamshid-M/NewsApp/blob/master/img/apply_lang.png)</br></br></br>
