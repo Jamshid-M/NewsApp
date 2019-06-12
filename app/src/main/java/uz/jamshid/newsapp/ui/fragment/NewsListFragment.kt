@@ -5,10 +5,7 @@ import android.view.View
 import android.widget.Toast
 import uz.jamshid.newsapp.R
 import uz.jamshid.newsapp.core.base.BaseListFragment
-import uz.jamshid.newsapp.core.extension.failure
-import uz.jamshid.newsapp.core.extension.observe
-import uz.jamshid.newsapp.core.extension.putExtra
-import uz.jamshid.newsapp.core.extension.viewModel
+import uz.jamshid.newsapp.core.extension.*
 import uz.jamshid.newsapp.core.model.News
 import uz.jamshid.newsapp.ui.adapter.NewsAdapter
 import uz.jamshid.newsapp.ui.viewmodel.NewsListViewModel
@@ -17,6 +14,7 @@ class NewsListFragment: BaseListFragment() {
 
     private lateinit var newsListViewModel: NewsListViewModel
     var key = ""
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         appComponent.inject(this)
@@ -25,15 +23,18 @@ class NewsListFragment: BaseListFragment() {
             observe(newsList, ::renderNewsList)
             failure(failure, ::handleFailure)
         }
+
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         key = getString(R.string.technology)
-        if(arguments!=null)
+        if(arguments!=null) {
             key = arguments?.getString("key")!!
+        }
 
+        newsListViewModel.lang = prefs.read("lang", "us")!!
         fetchNews()
     }
 

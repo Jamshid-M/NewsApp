@@ -4,4 +4,5 @@
     <string name="sport">Sport</string>
     <string name="business">Business</string>
     <string name="politics">politics</string>
+    <string name="news_language">News Language</string>
 </resources>

@@ -10,32 +10,33 @@ class NewsListViewModel @Inject constructor(dataManager: DataManager): BaseViewM
 
     var newsList: MutableLiveData<MutableList<News?>> = MutableLiveData()
     var page = 1
+    var lang = "us"
 
-    fun getPoliticNews(country: String = "us", page: Int = this.page){
-        compositeDisposable.add(mDataManager.getNews(country, "politics", page, "yourkey").subscribe({
+    fun getPoliticNews(country: String = lang, page: Int = this.page){
+        compositeDisposable.add(mDataManager.getNews(country, "politics", page, "e6ee668a90da4558be5f77273b2070b8").subscribe({
             newsList.value = it.articles
         },{
             failure.value = it.message
         }))
     }
 
-    fun getSportNews(country: String = "us", page: Int = this.page){
-        compositeDisposable.add(mDataManager.getNews(country, "sport", page, "yourkey").subscribe({
+    fun getSportNews(country: String = lang, page: Int = this.page){
+        compositeDisposable.add(mDataManager.getNews(country, "sport", page, "e6ee668a90da4558be5f77273b2070b8").subscribe({
             newsList.value = it.articles
         },{
             failure.value = it.message
         }))
     }
 
-    fun getBusinessNews(country: String = "us", page: Int = this.page){
-        compositeDisposable.add(mDataManager.getNews(country, "business", page, "yourkey").subscribe({
+    fun getBusinessNews(country: String = lang, page: Int = this.page){
+        compositeDisposable.add(mDataManager.getNews(country, "business", page, "e6ee668a90da4558be5f77273b2070b8").subscribe({
             newsList.value = it.articles
         },{
             failure.value = it.message
         }))
     }
 
-    fun getTechNews(country: String = "us", page: Int = this.page){
+    fun getTechNews(country: String = lang, page: Int = this.page){
         compositeDisposable.add(mDataManager.getNews(country, "technology", page, "e6ee668a90da4558be5f77273b2070b8").subscribe({
             newsList.value = it.articles
         },{

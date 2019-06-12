@@ -2,6 +2,7 @@ package uz.jamshid.newsapp.core.extension
 
 import android.arch.lifecycle.*
 import android.arch.lifecycle.ViewModelProvider.Factory
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
@@ -13,6 +14,7 @@ import android.widget.ImageView
 import com.squareup.picasso.Picasso
 import uz.jamshid.newsapp.R
 import java.io.Serializable
+import java.lang.Exception
 
 fun ViewGroup.inflate(layoutRes: Int): View{
     return LayoutInflater.from(context).inflate(layoutRes, this, false)
@@ -48,4 +50,49 @@ fun View.gone(){
 
 fun View.visible(){
     visibility = VISIBLE
+}
+
+@Throws
+fun <T> SharedPreferences.write(key: String, item: T) {
+    edit().apply {
+        when(item) {
+            is Int -> { putInt(key, item) }
+            is Float -> { putFloat(key, item) }
+            is Long -> { putLong(key, item) }
+            is String -> { putString(key, item) }
+            is Boolean -> { putBoolean(key, item) }
+            else -> {
+                throw Exception("Unsupported type ${item.toString()}")
+            }
+        }
+        apply()
+    }
+}
+
+/**
+ *  Reads data from SharedPreferences if is possible type,
+ *  otherwise @throws Exception
+ */
+@Throws
+inline fun <reified T> SharedPreferences.read(key: String, default: T): T? {
+    return when(default) {
+        is Int -> {
+            getInt(key, default) as? T
+        }
+        is Float -> {
+            getFloat(key, default) as? T
+        }
+        is Long -> {
+            getLong(key, default) as? T
+        }
+        is String -> {
+            getString(key, default) as? T
+        }
+        is Boolean -> {
+            getBoolean(key, default) as? T
+        }
+        else -> {
+            throw Exception("Unsupported type ${default.toString()}")
+        }
+    }
 }
