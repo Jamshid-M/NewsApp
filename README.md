@@ -12,7 +12,7 @@ Android project with the usage of libraries</br>
 ## Some Examples
 
 **Example with tech news** </br></br>
-<img src="https://github.com/Jamshid-M/NewsApp/blob/master/img/example1.png" height="200"></br></br></br>
+<img src="https://github.com/Jamshid-M/NewsApp/blob/master/img/example1.png" height="500"></br></br></br>
 
 **Example with business news** </br></br>
 ![alt_text](https://github.com/Jamshid-M/NewsApp/blob/master/img/example2.png)</br></br></br>
