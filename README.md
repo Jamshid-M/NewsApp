@@ -13,6 +13,7 @@ Android project with the usage of libraries</br>
 
 **Example with tech news** </br></br>
 ![alt text](https://github.com/Jamshid-M/NewsApp/blob/master/img/example1.png)</br></br></br>
+<img src="https://github.com/favicon.ico" width="48">
 
 **Example with business news** </br></br>
 ![alt_text](https://github.com/Jamshid-M/NewsApp/blob/master/img/example2.png)</br></br></br>
